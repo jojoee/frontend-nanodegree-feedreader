@@ -131,7 +131,7 @@ $(function() {
 
   /* TODO: Write a new test suite named "Initial Entries" */
   describe('Initial Entries', function() {
-    var $feed = $('.feed');
+    var $feed;
 
     /* TODO: Write a test that ensures when the loadFeed
      * function is called and completes its work, there is at least
@@ -140,6 +140,7 @@ $(function() {
      * the use of Jasmine's beforeEach and asynchronous done() function.
      */
     beforeEach(function(done) {
+      $feed = $('.feed');
       loadFeed(0, done);
     });
 
@@ -154,9 +155,9 @@ $(function() {
 
   /* TODO: Write a new test suite named "New Feed Selection" */
   describe('New Feed Selection', function() {
-    var $feed = $('.feed'),
-      nFeeds = allFeeds.length,
-      feedContents = [];
+    var $feed,
+      nFeeds,
+      feedContents;
 
     function getFeedElementHtml() {
       return $feed.html();
@@ -188,6 +189,9 @@ $(function() {
      * Remember, loadFeed() is asynchronous.
      */
     beforeEach(function(done) {
+      $feed = $('.feed');
+      nFeeds = allFeeds.length;
+      feedContents = [];
       loadFeedTest(0, done);
     });
 
