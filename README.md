@@ -20,8 +20,7 @@ You will learn how to use Jasmine to write a number of tests against a pre-exist
 * Writing effective tests requires analyzing multiple aspects of an application including the HTML, CSS and JavaScript - an extremely important skill when changing teams or joining a new company.
 * Good tests give you the ability to quickly analyze whether new code breaks an existing feature within your codebase, without having to manually test all of the functionality.
 
-
-# How will I complete this project?
+## How will I complete this project?
 
 1. Download the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).
 2. Review the functionality of the application within your browser.
@@ -37,3 +36,7 @@ You will learn how to use Jasmine to write a number of tests against a pre-exist
 12. Write a test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container. Remember, loadFeed() is asynchronous so this test wil require the use of Jasmine's beforeEach and asynchronous done() function.
 13. Write a test that ensures when a new feed is loaded by the loadFeed function that the content actually changes. Remember, loadFeed() is asynchronous.
 14. When complete - all of your tests should pass.
+
+## TODO
+
+- [ ] Implement recursive function for testing every feed (in `Initial Entries` test suit)
