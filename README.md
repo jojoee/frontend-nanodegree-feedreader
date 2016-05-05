@@ -39,4 +39,5 @@ You will learn how to use Jasmine to write a number of tests against a pre-exist
 
 ## TODO
 
+- [x] Implement recursive function for testing every feed (in `New Feed Selection` test suit)
 - [ ] Implement recursive function for testing every feed (in `Initial Entries` test suit)
