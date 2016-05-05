@@ -155,10 +155,32 @@ $(function() {
   /* TODO: Write a new test suite named "New Feed Selection" */
   describe('New Feed Selection', function() {
     var $feed = $('.feed'),
+      nFeeds = allFeeds.length,
       feedContents = [];
 
     function getFeedElementHtml() {
       return $feed.html();
+    }
+
+    // recursive function, loop through each feed
+    function loadFeedTest(idx, done) {
+      // in range (except 'last' index of `allFeeds`)
+      if (idx >= 0 && idx < nFeeds - 1) {
+        loadFeed(idx, function() {
+          feedContents[idx] = getFeedElementHtml();
+          loadFeedTest(++idx, done);
+        });
+
+      // 'last' index of `allFeedsallFeeds
+      } else if (idx === nFeeds - 1) {
+        loadFeed(idx, function() {
+          feedContents[idx] = getFeedElementHtml();
+          done();
+        });
+
+      } else {
+        // nothing
+      }
     }
 
     /* TODO: Write a test that ensures when a new feed is loaded
@@ -166,19 +188,13 @@ $(function() {
      * Remember, loadFeed() is asynchronous.
      */
     beforeEach(function(done) {
-      loadFeed(0, function() {
-        feedContents[0] = getFeedElementHtml();
-        
-        loadFeed(1, function() {
-          feedContents[1] = getFeedElementHtml();
-
-          done();
-        });
-      });
+      loadFeedTest(0, done);
     });
 
     it('When "loadFeed" function\'s called and completed, content should be changed', function(done) {
-      expect(feedContents[0]).not.toBe(feedContents[1]);
+      for (i = 0; i < nFeeds - 1; i++) {
+        expect(feedContents[i]).not.toEqual(feedContents[i + 1]);
+      }
       done();
     });
   });
